@@ -4,18 +4,23 @@
     <input message="Choose jruby version: 6,7,9" validargs="6,7,9" addproperty="jrubyconf"/>
     <ivy:retrieve conf="${jrubyconf}"/>
     <!--ivy:report graph="false"/-->
-    <get dest="gem" usetimestamp="true" skipexisting="true">
+    <get dest="gem/cache" usetimestamp="true" skipexisting="true">
       <url url="https://rubygems.org/downloads/awesome_print-1.6.1.gem"/>
       <url url="https://rubygems.org/downloads/bundler-1.9.6.gem"/>
     </get>
     <mkdir dir="tmp"/>
     <exec executable="cmd">
-      <arg line="/c jgem install -l gem/*.gem"/>
+      <arg line="/c jgem install -l gem/cache/*"/>
     </exec>
   </target>
   <target name="clean">
-    <delete dir="gem"/>
-    <delete dir="lib"/>
-    <delete dir="tmp"/>
+    <delete includeemptydirs="true">
+      <fileset dir="." defaultexcludes="false">
+        <include name="gem/"/>
+        <include name="lib/"/>
+        <include name="tmp/"/>
+        <exclude name="gem/cache/"/>
+      </fileset>
+    </delete>
   </target>
 </project>
