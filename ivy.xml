@@ -1,26 +1,27 @@
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
   <info organisation="" module=""/>
-  <configurations>
+  <configurations defaultconfmapping="6->default;7->default;9->default">
+    <conf name="default" visibility="public"/>
     <conf name="6" visibility="public"/>
     <conf name="7" visibility="public"/>
     <conf name="9" visibility="public"/>
   </configurations>
   <dependencies>
-    <!-- 1.6.8 dependencies -->
-    <dependency conf="6->default" org="org.jruby" name="jruby-core" rev="1.6.8"/>
-    <dependency conf="6->default" org="org.jruby" name="jruby-stdlib" rev="1.6.8"/>
-    <dependency conf="6->default" org="com.jcraft" name="jzlib" rev="1.1.1"/>
-    <!-- 1.7.20 dependencies -->
-    <dependency conf="7->default" org="org.jruby" name="jruby-core" rev="1.7.20"/>
-    <dependency conf="7->default" org="org.jruby" name="jruby-stdlib" rev="1.7.20"/>
-    <dependency conf="7->default" org="com.github.jnr" name="jffi" rev="1.2.9">
+    <!-- 1.6 dependencies -->
+    <dependency conf="6" org="org.jruby" name="jruby-core" rev="1.6.8"/>
+    <dependency conf="6" org="org.jruby" name="jruby-stdlib" rev="1.6.8"/>
+    <dependency conf="6" org="com.jcraft" name="jzlib" rev="1.1.1"/>
+    <!-- 1.7 dependencies -->
+    <dependency conf="7" org="org.jruby" name="jruby-core" rev="1.7.20"/>
+    <dependency conf="7" org="org.jruby" name="jruby-stdlib" rev="1.7.20"/>
+    <dependency conf="7" org="com.github.jnr" name="jffi" rev="1.2.9">
       <artifact name="jffi" type="jar"/>
       <artifact name="jffi" type="jar" m:classifier="native"/>
     </dependency>
-    <!-- 9.0.0.0.pre2 dependencies -->
-    <dependency conf="9->default" org="org.jruby" name="jruby-core" rev="9.0.0.0.pre2"/>
-    <dependency conf="9->default" org="org.jruby" name="jruby-stdlib" rev="9.0.0.0.pre2"/>
-    <dependency conf="9->default" org="com.github.jnr" name="jffi" rev="1.2.8">
+    <!-- 9k dependencies -->
+    <dependency conf="9" org="org.jruby" name="jruby-core" rev="9.0.0.0.pre2"/>
+    <dependency conf="9" org="org.jruby" name="jruby-stdlib" rev="9.0.0.0.pre2"/>
+    <dependency conf="9" org="com.github.jnr" name="jffi" rev="1.2.8">
       <artifact name="jffi" type="jar"/>
       <artifact name="jffi" type="jar" m:classifier="native"/>
     </dependency>
